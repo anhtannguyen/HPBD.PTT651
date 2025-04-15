@@ -1,0 +1,107 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Chiều cao tối thiểu bằng chiều cao màn hình */
+    margin: 0; /* Bỏ lề mặc định */
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); /* Màu nền gradient cam vàng */
+    font-family: 'Arial', sans-serif; /* Font chữ dự phòng */
+    overflow: hidden; /* Ẩn thanh cuộn nếu nội dung vừa khít */
+}
+
+.birthday-card {
+    background-color: rgba(255, 255, 255, 0.9); /* Nền trắng hơi trong suốt */
+    padding: 50px 70px;
+    border-radius: 20px; /* Bo góc */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+    text-align: center;
+    /* Hiệu ứng xuất hiện */
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    animation: fadeInCard 1.5s ease-out forwards; /* Gọi animation */
+}
+
+/* Định nghĩa animation cho card */
+@keyframes fadeInCard {
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.greeting {
+    font-family: 'Pacifico', cursive; /* Sử dụng font Pacifico đã import */
+    color: #e74c3c; /* Màu đỏ cam */
+    font-size: 3em; /* Kích thước chữ lớn */
+    margin-bottom: 20px;
+    /* Hiệu ứng xuất hiện cho chữ */
+    opacity: 0;
+    animation: fadeInText 1s ease-out 1s forwards; /* Bắt đầu sau 1s */
+}
+
+.message {
+    color: #2ecc71; /* Màu xanh lá cây */
+    font-size: 2em; /* Kích thước chữ */
+    font-weight: bold;
+    margin-top: 10px;
+    /* Hiệu ứng xuất hiện cho chữ */
+    opacity: 0;
+    animation: fadeInText 1s ease-out 1.5s forwards; /* Bắt đầu sau 1.5s */
+}
+
+.message span { /* Để định dạng trái tim nếu cần */
+    color: red;
+}
+
+/* Định nghĩa animation chung cho text */
+@keyframes fadeInText {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive cho màn hình nhỏ hơn */
+@media (max-width: 600px) {
+    .birthday-card {
+        padding: 30px 40px;
+    }
+    .greeting {
+        font-size: 2em;
+    }
+    .message {
+        font-size: 1.5em;
+    }
+}
+/* ... (Giữ nguyên các phần CSS đã có ở trên) ... */
+
+.birthday-card {
+    /* ... (Giữ các thuộc tính cũ: background-color, padding, border-radius, etc.) ... */
+    text-align: center;
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    animation: fadeInCard 1.5s ease-out forwards;
+
+    /* Thêm dòng này */
+    cursor: pointer; /* Đổi con trỏ thành hình bàn tay khi di chuột qua */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hiệu ứng chuyển động mượt */
+}
+
+/* (Tùy chọn) Thêm hiệu ứng khi di chuột qua */
+.birthday-card:hover {
+    transform: scale(1.02); /* Phóng to nhẹ card */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); /* Bóng đổ rõ hơn */
+}
+
+/* ... (Giữ nguyên .greeting, .message) ... */
+
+/* Thêm định dạng cho dòng hướng dẫn */
+.instruction {
+    font-size: 0.9em; /* Kích thước chữ nhỏ hơn */
+    color: #555;     /* Màu xám đậm */
+    margin-top: 25px; /* Khoảng cách với nội dung trên */
+    font-style: italic; /* Chữ nghiêng */
+    opacity: 0; /* Ẩn ban đầu */
+    animation: fadeInText 1s ease-out 2s forwards; /* Xuất hiện sau cùng */
+}
+
+/* ... (Giữ nguyên @keyframes và @media query) ... */
